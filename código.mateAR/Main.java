@@ -1,0 +1,161 @@
+import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.LocalTime;
+
+public class Main {
+  
+  public static void main(String[] args) { 
+    System.out.println("-Seleccione una de las siguientes opciones!");
+    System.out.println("1 -> Cargar producto");
+    System.out.println("2 -> Cargar combo");
+    System.out.println("3 -> Actualizar stock");
+    System.out.println("4 -> Registrar baja de producto");
+    System.out.println("5 -> Registrar baja de combo");  
+    
+    Scanner scanner = new Scanner(System.in);
+    int opcion = scanner.nextInt();
+    switch(opcion){
+      case 1:
+        CargarProducto();
+      break;
+      case 2:
+        CargarCombo();
+      break;
+      case 3:
+       CargarProducto();
+       ActualizarStockDeProducto();
+      break;
+      case 4:
+        CargarProducto();
+        RegistrarBajaProducto();
+      break;
+      case 5:
+        CargarCombo();
+        RegistrarBajaCombo();
+      break;
+    }
+  }
+    
+    public static void CargarProducto(){
+      RepositorioProducto listadoProductos = new RepositorioProducto();
+      
+      System.out.println("\n-Cargue los siguientes campos referidos al nuevo producto!");
+      
+      System.out.println("Descripcion\t");
+       Scanner scanner = new Scanner(System.in);
+      String descripcionProducto = scanner.nextLine();
+      
+      System.out.println("Modelo\t");
+      String modelo = scanner.nextLine();
+      
+      System.out.println("Codigo\t");
+      int codigoProducto = scanner.nextInt();
+      
+      System.out.println("Precio unitario\t");
+      float precioUnitario = scanner.nextFloat();
+    
+      System.out.println("Cantidad actual\t");
+      int cantidadActual = scanner.nextInt();
+      
+      System.out.println("Disponibilidad de venta\t");
+      boolean disponibilidadALaVenta = scanner.nextBoolean();
+    
+      Producto producto1 = new Producto(codigoProducto, descripcionProducto, modelo, precioUnitario, cantidadActual, disponibilidadALaVenta);
+      listadoProductos.AgregarProducto(producto1);
+      System.out.println("El producto [" + producto1.getCodigoProducto() + "] se ha registrado con exito!\n");
+    }
+    
+    
+    
+    public static void CargarCombo(){
+      RepositorioCombo listadoCombos = new RepositorioCombo();
+      
+      System.out.println("\n-Cargue los siguientes campos referidos al nuevo combo!");
+      
+      System.out.println("Descripcion\t");
+      Scanner scanner = new Scanner(System.in);
+      String descripcionCombo = scanner.nextLine();
+      
+      System.out.println("Codigo\t");
+      int codigoCombo = scanner.nextInt();
+    
+      System.out.println("Precio unitario\t");
+      float precioCombo = scanner.nextFloat();
+      
+      System.out.println("Cantidad actual\t");
+      int cantidadActual = scanner.nextInt();
+      
+      System.out.println("Disponibilidad de venta\t");
+      boolean disponibilidadComboALaVenta = scanner.nextBoolean();
+      
+      Combo combo1 = new Combo(codigoCombo, descripcionCombo, precioCombo, cantidadActual, disponibilidadComboALaVenta);
+      listadoCombos.AgregarCombo(combo1);
+      System.out.println("El combo [" + combo1.getCodigoCombo() + "] se ha registrado con exito!\n");
+    }
+    
+    
+    
+    public static void ActualizarStockDeProducto(){
+      RepositorioProducto listadoProductos = new RepositorioProducto();
+      
+      System.out.println("-Ingrese el codigo del producto para poder actualizar su stock!\t");
+      Scanner scanner = new Scanner(System.in);
+      int codigoProducto = scanner.nextInt();
+      Producto producto = listadoProductos.ObtenerProducto(codigoProducto);
+    
+      if (producto == null){
+        System.out.println("ERROR! El producto con codigo " + codigoProducto + " no existe en el registro");
+      }
+      else{
+        System.out.println("Ingrese el stock actual del producto con codigo [" + codigoProducto + "]");
+        int cantidadActual = scanner.nextInt();
+      
+        if(cantidadActual>=0){
+          System.out.println("Cantidad a reponer\t");
+          int nuevaCantidad = scanner.nextInt();
+          nuevaCantidad = nuevaCantidad + cantidadActual;
+          System.out.println("El stock se actualizo con exito!\nCantidad Actual = " + nuevaCantidad);
+        }
+      }
+    }
+    
+    
+    
+    public static void RegistrarBajaProducto(){
+      RepositorioProducto listadoProductos = new RepositorioProducto();
+      
+      System.out.println("Si desea dar de baja a un producto\n -Ingrese el codigo correspondiente!\t");
+      Scanner scanner = new Scanner(System.in);
+      int codigoProducto = scanner.nextInt();
+      Producto producto = listadoProductos.ObtenerProducto(codigoProducto);
+    
+      if (producto == null){
+        System.out.println("ERROR! El producto con codigo " + codigoProducto + " no existe en el registro");
+      }
+      else{
+        System.out.println("Baja del producto [" + producto + "] registrada el dia [" + LocalDate.now() + "] a las [" + LocalTime.now() + "] horas");
+
+      }
+    }
+    
+    
+    
+    public static void RegistrarBajaCombo(){
+      RepositorioCombo listadoCombos = new RepositorioCombo();
+      
+      System.out.println("Si quiere dar de baja a un combo\n -Ingrese el codigo correspondiente!\t");
+      Scanner scanner = new Scanner(System.in);
+      int codigoCombo = scanner.nextInt();
+      Combo combo = listadoCombos.ObtenerCombo(codigoCombo);
+    
+      if (combo == null){
+        System.out.println("ERROR! El combo con codigo [" + codigoCombo + "] no existe en el registro");
+      }
+      else{
+        System.out.println("Baja del combo [" + combo + "] registrada el dia [" + LocalDate.now() + "] a las [" + LocalTime.now() + "] horas");
+      }
+    }
+  }
+  
+ 
+  

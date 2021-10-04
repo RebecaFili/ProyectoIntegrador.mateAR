@@ -1,0 +1,49 @@
+
+public class Combo {
+  
+  private int codigoCombo;
+  private String descripcionCombo;
+  private float precioCombo;
+  private int cantidadActual;
+  private boolean disponibilidadComboALaVenta;
+  
+   public Combo (int codigoCombo, String descripcionCombo, float precioCombo, int cantidadActual)
+  {
+    this.codigoCombo = codigoCombo;
+    this.descripcionCombo = descripcionCombo;
+    this.precioCombo = precioCombo;
+    this.cantidadActual = cantidadActual;
+  }
+   
+   public int getCodigoCombo(){
+    return this.codigoCombo;
+  }
+  public void setCodigoCombo(int codigoCombo){
+    this.codigoCombo = codigoCombo;
+  }
+  
+  public String getDescripcionCombo(){
+    return this.descripcionCombo;
+  }
+  public void setDescripcionCombo(String descripcioCombo){
+    this.descripcionCombo = descripcionCombo;
+  }
+  
+  public float getPrecioCombo(){
+    return this.precioCombo;
+  }
+  public void setPrecioCombo(float precioCombo){
+    this.precioCombo = precioCombo;
+  }
+  
+  public int getCantidadActual(){
+    return this.cantidadActual;
+  }
+  public void setCantidadActual(int cantidadActual){
+    this.cantidadActual = cantidadActual;
+  }
+  
+  public String toString() {
+    return this.descripcionCombo;
+  }
+}
