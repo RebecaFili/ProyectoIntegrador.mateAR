@@ -12,15 +12,18 @@ public class Producto {
   private float precioUnitario;
   private int cantidadActual;
   private boolean disponibleALaVenta;
+  private String categoria;
   
-  public Producto (int codigoProducto, String descripcionProducto, String modelo, float precioUnitario, int cantidadActual, boolean dispobleALaVenta)
+  public Producto (int codigoProducto, String descripcionProducto, String modelo, String color, float precioUnitario, int cantidadActual, boolean dispobleALaVenta, String categoria)
   {
     this.codigoProducto = codigoProducto;
     this.descripcionProducto = descripcionProducto;
     this.modelo = modelo;
+    this.color = color;
     this.precioUnitario = precioUnitario;
     this.cantidadActual = cantidadActual;
     this.disponibleALaVenta = disponibleALaVenta;
+    this.categoria = categoria;
   }
   
   public int getCodigoProducto(){
@@ -37,13 +40,22 @@ public class Producto {
     this.descripcionProducto = descripcionProducto;
   }
   
-  public String geModelo(){
+  public String getModelo(){
     return this.modelo;
   }
-  public void seModelo(String modelo){
+  public void setModelo(String modelo){
     this.modelo = modelo;
   }
    
+ 
+  public String getColor(){
+    return this.color;
+  }
+  public void setColor(String color){
+    this.color = color;
+  }
+  
+  
   public float getPrecioUnitario(){
     return this.precioUnitario;
   }
@@ -65,7 +77,14 @@ public class Producto {
     this.disponibleALaVenta = disponibleALaVenta;
   }
   
-   public String toString() {
+  public String getCategoria(){
+    return this.categoria;
+  }
+  public void setCategoria(String categoria){
+    this.categoria = categoria;
+  }
+  
+  public String toString() {
     return this.descripcionProducto;
   }
    

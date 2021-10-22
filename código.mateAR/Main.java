@@ -42,11 +42,17 @@ public class Main {
       System.out.println("\n-Cargue los siguientes campos referidos al nuevo producto!");
       
       System.out.println("Descripcion\t");
-       Scanner scanner = new Scanner(System.in);
+      Scanner scanner = new Scanner(System.in);
       String descripcionProducto = scanner.nextLine();
       
       System.out.println("Modelo\t");
       String modelo = scanner.nextLine();
+      
+      System.out.println("Color\t");
+      String color = scanner.nextLine();
+      
+      System.out.println("Categoria\t");
+      String categoria = scanner.nextLine();
       
       System.out.println("Codigo\t");
       int codigoProducto = scanner.nextInt();
@@ -60,7 +66,7 @@ public class Main {
       System.out.println("Disponibilidad de venta\t");
       boolean disponibilidadALaVenta = scanner.nextBoolean();
     
-      Producto producto1 = new Producto(codigoProducto, descripcionProducto, modelo, precioUnitario, cantidadActual, disponibilidadALaVenta);
+      Producto producto1 = new Producto(codigoProducto, descripcionProducto, modelo, color, precioUnitario, cantidadActual, disponibilidadALaVenta, categoria);
       listadoProductos.AgregarProducto(producto1);
       System.out.println("El producto [" + producto1.getCodigoProducto() + "] se ha registrado con exito!\n");
     }
@@ -155,7 +161,19 @@ public class Main {
         System.out.println("Baja del combo [" + combo + "] registrada el dia [" + LocalDate.now() + "] a las [" + LocalTime.now() + "] horas");
       }
     }
-  }
+    
+}
+    
+//  using Newtonsoft.Json;
+// 
+//  var producto1 = new Producto { Codigo = 1, Descripcion = "Mate Camionero", Modelo = "Original termico", Color = "Verde", Categoria = "Mate", PrecioUnitario = 5900, CantidadActual = 50, Disponibilidad = true};
+//  var producto2 = new Producto { Codigo = 2, Descripcion = "Termo Stanley con Tapon Cebador", Modelo = "Clasico", Color = "Rojo", Categoria = "Termo", PrecioUnitario = 12100, CantidadActual = 120, Disponibilidad = false};
+//  
+//  var producto = new List<Producto>();
+//  producto.add(producto1);
+//  producto.add(producto2);
+//    
+//  }
   
  
   
