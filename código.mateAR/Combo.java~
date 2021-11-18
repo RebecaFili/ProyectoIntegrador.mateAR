@@ -3,16 +3,17 @@ public class Combo {
   
   private int codigoCombo;
   private String descripcionCombo;
-  private float precioCombo;
+  private double precioCombo;
   private int cantidadActual;
   private boolean disponibilidadComboALaVenta;
   
-   public Combo (int codigoCombo, String descripcionCombo, float precioCombo, int cantidadActual)
+   public Combo (int codigoCombo, String descripcionCombo, double precioCombo, int cantidadActual, boolean disponibilidadComboALaVenta)
   {
     this.codigoCombo = codigoCombo;
     this.descripcionCombo = descripcionCombo;
     this.precioCombo = precioCombo;
     this.cantidadActual = cantidadActual;
+    this.disponibilidadComboALaVenta = disponibilidadComboALaVenta;
   }
    
    public int getCodigoCombo(){
@@ -29,10 +30,10 @@ public class Combo {
     this.descripcionCombo = descripcionCombo;
   }
   
-  public float getPrecioCombo(){
+  public double getPrecioCombo(){
     return this.precioCombo;
   }
-  public void setPrecioCombo(float precioCombo){
+  public void setPrecioCombo(double precioCombo){
     this.precioCombo = precioCombo;
   }
   
@@ -41,6 +42,13 @@ public class Combo {
   }
   public void setCantidadActual(int cantidadActual){
     this.cantidadActual = cantidadActual;
+  }
+  
+  public boolean getDisponibilidadComboALaVenta(){
+    return this.disponibilidadComboALaVenta;
+  }
+  public void setDisponibilidadComboALaVenta(boolean disponibilidadComboALaVenta){
+    this.disponibilidadComboALaVenta = disponibilidadComboALaVenta;
   }
   
   public String toString() {
